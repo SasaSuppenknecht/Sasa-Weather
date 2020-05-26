@@ -1,0 +1,6 @@
+name: SasaWeather
+version: 1.0
+main: Suppenknecht.SasaWeather.Main
+
+commands:
+  windspeed:

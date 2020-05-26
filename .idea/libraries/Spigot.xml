@@ -1,0 +1,22 @@
+<component name="libraryTable">
+  <library name="Spigot">
+    <CLASSES>
+      <root url="file://$USER_HOME$/Documents/Programmierstuff/Spigot" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$USER_HOME$/Documents/Programmierstuff/Spigot/Bukkit/src/main/java" />
+      <root url="file://$USER_HOME$/Documents/Programmierstuff/Spigot/Bukkit/src/test/java" />
+      <root url="file://$USER_HOME$/Documents/Programmierstuff/Spigot/CraftBukkit/src/main/java" />
+      <root url="file://$USER_HOME$/Documents/Programmierstuff/Spigot/CraftBukkit/src/test/java" />
+      <root url="file://$USER_HOME$/Documents/Programmierstuff/Spigot/Spigot/Spigot-API/src/main/java" />
+      <root url="file://$USER_HOME$/Documents/Programmierstuff/Spigot/Spigot/Spigot-API/src/test/java" />
+      <root url="file://$USER_HOME$/Documents/Programmierstuff/Spigot/Spigot/Spigot-Server/src/main/java" />
+      <root url="file://$USER_HOME$/Documents/Programmierstuff/Spigot/Spigot/Spigot-Server/src/test/java" />
+      <root url="file://$USER_HOME$/Documents/Programmierstuff/Spigot/work/decompile-ee3ecae0" />
+      <root url="file://$USER_HOME$/Documents/Programmierstuff/Spigot" />
+    </SOURCES>
+    <jarDirectory url="file://$USER_HOME$/Documents/Programmierstuff/Spigot" recursive="false" />
+    <jarDirectory url="file://$USER_HOME$/Documents/Programmierstuff/Spigot" recursive="false" type="SOURCES" />
+  </library>
+</component>

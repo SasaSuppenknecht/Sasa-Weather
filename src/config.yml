@@ -1,0 +1,52 @@
+# General configuration for this plugin
+General:
+  # if this plugin should be enabled
+  # Default: true
+  Enable: true
+
+
+//todo
+  # what is the interval between weathers
+  Interval:
+    # the minimal time between different weathers (in seconds; will be at least 30)
+    # Default: 180
+    MinTime: 180
+    # the maximum time between different weathers (in seconds; will be at least 30)
+    # Default: 900
+    MaxTime: 900
+    # true = random number between MinTime and MaxTime
+    # false = a semi-random, more middle-average number between MinTime and MaxTime
+    # Default: true
+    Random: true
+
+  # The chance that a weather occurs per interval (must be between 0.0 and 1.0); Default: 1.0
+  WeatherLikelihood: 1.0
+//
+
+# Windy represents a windy weather, which slows down players that walk towards the wind
+# and speeds up players that walk with the wind; it also generates fancy particles
+Windy:
+  # we(a)ther or not this weather will occur
+  # Default: true
+  EnableWeather: true
+
+  # will pick a random duration for windy weather between MinDuration and MaxDuration
+  Duration:
+    # the minimal duration of windy weather (in seconds; will be at least 30)
+    # Default: 120
+    MinDuration: 120
+    # the maximum duration of windy weather (in seconds; will be at least 30)
+    # Default: 210
+    MaxDuration: 210
+
+  # if AffectPlayers and EnableParticles are both false, EnableWeather will be considered false, too
+  # should the wind affect players? (e.g. slow them down or speed them up)
+  # Default: true
+  AffectPlayers: true
+  # if this weather should generate particles
+  # Default: true
+  EnableParticles: true
+
+
+
+
