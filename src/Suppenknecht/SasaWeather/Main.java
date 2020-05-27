@@ -1,14 +1,11 @@
 package Suppenknecht.SasaWeather;
 
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
+
 
 public class Main extends JavaPlugin {
 
-    private static Main instance;
-
-    private boolean enabled;
-    private WeatherHandler weatherHandler;
+    private static Main instance = null;
 
     @Override
     public void onDisable() {
@@ -17,18 +14,19 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        instance = this;
+        this.saveDefaultConfig();
 
-        enabled = getConfig().getBoolean("General.Enable", true);
+        boolean enabled = getConfig().getBoolean("General.Enable", true);
         if (!enabled) {
             getServer().getPluginManager().disablePlugin(this);
         }
 
-        instance = this;
-        this.saveDefaultConfig();
-        weatherHandler = new WeatherHandler();
+        getServer().dispatchCommand(getServer().getConsoleSender(), "weather clear"); //doesn't work
+        WeatherHandler weatherHandler = new WeatherHandler();
+        new Commands(weatherHandler);
+        new WeatherCommandCatcher();
     }
-
-
 
     public static Main getMainInstance() {
         return instance;

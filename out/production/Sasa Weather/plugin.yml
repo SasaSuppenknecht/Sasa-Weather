@@ -3,4 +3,10 @@ version: 1.0
 main: Suppenknecht.SasaWeather.Main
 
 commands:
-  windspeed:
+  sweather:
+    description: Changes the weather
+    usage: /weather [type]
+
+  enabledweather:
+    description: Lists the enabled weather types.
+    usage: /enabledweather

@@ -7,21 +7,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10bdc72c-4c61-4f35-b262-82bd314cc009" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/WeatherEndEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Commands.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/Types/Rain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/WeatherCommandCatcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/configXWeather.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/Weather/Types/Windy$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/Weather/Types/Windy$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/Weather/Types/Windy$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/Weather/Types/Windy$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/Weather/Types/Windy$DirectionFinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/Weather/Types/Windy$DirectionFinder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/Weather/Types/Windy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/Weather/Types/Windy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/Weather/WeatherType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/Weather/WeatherType.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/WeatherHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/WeatherHandler$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/WeatherHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/WeatherHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sasa Weather/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sasa Weather/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/Types/Windy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/Types/Windy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/WeatherType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/WeatherType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/WeatherHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/WeatherHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugin.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +36,9 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Sasa-Weather" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -49,7 +57,8 @@
   <component name="ProjectId" id="1bxIr0hY02jjMIGkhZVkzYbWQEM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Minecraft Server/Minecraft Spigot Server 1.15.2/plugins" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />

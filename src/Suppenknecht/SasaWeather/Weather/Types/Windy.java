@@ -1,28 +1,23 @@
 package Suppenknecht.SasaWeather.Weather.Types;
 
-import Suppenknecht.SasaWeather.Main;
-import Suppenknecht.SasaWeather.Weather.WeatherEndEvent;
 import Suppenknecht.SasaWeather.Weather.WeatherType;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
-import org.bukkit.World;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.scheduler.BukkitScheduler;
+
 
 
 import java.util.*;
 import java.util.function.Consumer;
 
-public class Windy implements WeatherType, Listener {
+public class Windy extends WeatherType {
 
     private final static int IN = 1;
     private final static int PARALLEL = 0;
@@ -35,33 +30,26 @@ public class Windy implements WeatherType, Listener {
     private boolean enableParticles;
     //---
 
-    private final Main MAIN;
-    private final World OVERWORLD;
     private final List<WindDirection> windList = Collections.unmodifiableList(Arrays.asList(WindDirection.values()));
     private final int WINDLIST_SIZE = windList.size();
-    private final BukkitScheduler SCHEDULER;
 
-    private static Hashtable<UUID, Integer> playerDirTable;
+    private static Hashtable<Player, Integer> playerDirTable;
 
-    private int weatherThreadID;
     private WindDirection windFrom;
+    private int weatherThreadID;
 
     public Windy() {
-        MAIN = Main.getMainInstance();
-        OVERWORLD = MAIN.getServer().getWorlds().get(0);
-        SCHEDULER = MAIN.getServer().getScheduler();
-        getConfig();
+        super();
     }
 
-    private void getConfig() {
-        FileConfiguration config = MAIN.getConfig();
-        int min = config.getInt("Windy.MinDuration", 120);
-        minDuration = min < 30 ? 210 : min;
-        int max = config.getInt("Windy.MaxDuration", 210);
-        maxDuration = max < 30 ? 210 : max;
+     protected void getConfig() {
+        minDuration = CONFIG.getInt("Windy.MinDuration", 120);
+        if (minDuration < 30 || minDuration > 1200) minDuration = 120;
+        maxDuration = CONFIG.getInt("Windy.MaxDuration", 210);
+        if (maxDuration < 30 || maxDuration > 1200) maxDuration = 210;
 
-        affectPlayers = config.getBoolean("Windy.AffectPlayers", true);
-        enableParticles = config.getBoolean("Windy.EnableParticles", true);
+        affectPlayers = CONFIG.getBoolean("Windy.AffectPlayers", true);
+        enableParticles = CONFIG.getBoolean("Windy.EnableParticles", true);
     }
 
     @Override
@@ -69,43 +57,34 @@ public class Windy implements WeatherType, Listener {
         Collection<? extends Player> players = MAIN.getServer().getOnlinePlayers();
         playerDirTable = new Hashtable<>(MAIN.getServer().getMaxPlayers() * 2);
 
+        for (Player p : players) {
+            if (p.getWorld() == OVERWORLD)
+                playerDirTable.put(p, PARALLEL);
+        }
+
         Random r = new Random();
         int randomInt = r.nextInt(WINDLIST_SIZE);
         windFrom = windList.get(randomInt);
 
-        for (Player p : players) {
-            if (p.getWorld() == MAIN.getServer().getWorlds().get(0))
-                playerDirTable.put(p.getUniqueId(), PARALLEL);
-        }
-
-        Thread thread = new Thread() {
-            @Override
-            public void run() {
-                for (Player p : players) {
-                    weatherEffects(p);
-                }
-            }
-        };
-
-        weatherThreadID = SCHEDULER.scheduleSyncRepeatingTask(MAIN, thread, 0, 4);
-
-        int duration = (r.nextInt(maxDuration + 1) + minDuration) * 20;
-
-        SCHEDULER.scheduleSyncDelayedTask(MAIN, new Runnable() {
-            @Override
-            public void run() {
-                stop();
-            }
-        }, duration);
-
-        MAIN.getServer().getPluginManager().registerEvents(this, MAIN);
+        super.start();
     }
 
     @Override
+    protected void scheduleThreads() {
+        Thread thread = new Thread(() -> {
+            for (Player p : playerDirTable.keySet()) {
+                weatherEffects(p);
+            }
+        });
+        weatherThreadID = SCHEDULER.scheduleSyncRepeatingTask(MAIN, thread, 0, 4);
+
+        int duration = (new Random().nextInt(maxDuration - minDuration + 1) + minDuration) * 20;
+        SCHEDULER.scheduleSyncDelayedTask(MAIN, new StopThread(), duration);
+    }
+
     public void stop() {
-        HandlerList.unregisterAll(this);
         SCHEDULER.cancelTask(weatherThreadID);
-        MAIN.getServer().getPluginManager().callEvent(new WeatherEndEvent(this));
+        super.stop();
     }
 
     private void weatherEffects(Player player) {
@@ -133,7 +112,7 @@ public class Windy implements WeatherType, Listener {
 
     private void affectEntities(Player player) {
         if (isAffectable(player)) {
-            int dir = playerDirTable.get(player.getUniqueId());
+            int dir = playerDirTable.get(player);
             if (dir == IN) {
                 player.setWalkSpeed(0.25f);
             } else if (dir == AGAINST) {
@@ -160,12 +139,12 @@ public class Windy implements WeatherType, Listener {
                 if (OVERWORLD.getBlockAt(x + 2, y, z - 2).getType() != Material.AIR) count++;
                 if (OVERWORLD.getBlockAt(x - 2, y, z - 2).getType() != Material.AIR) count++;
 
-                if (count >= 3) return false;
+                if (count >= 2) return false;
             }
         }
-
         return true;
     }
+
 
     @EventHandler
     public void onPlayerMoveEvent(PlayerMoveEvent event) {
@@ -184,41 +163,43 @@ public class Windy implements WeatherType, Listener {
                 double deltaZ = to.getZ() - from.getZ();
 
                 Player p = event.getPlayer();
-                UUID id = p.getUniqueId();
 
                 if (!p.isSneaking() && !p.isFlying()) {
-                    windFrom.METHOD.accept(new DirectionFinder(deltaX, deltaZ, id, windFrom.FIRST_NAMED_WIND));
+                    windFrom.METHOD.accept(new DirectionFinder(deltaX, deltaZ, p, windFrom.FIRST_NAMED_WIND));
+                } else {
+                    p.setWalkSpeed(2.0f);
                 }
-
-                System.out.println();
         }
-
-
     }
 
 
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        UUID id = event.getPlayer().getUniqueId();
-        playerDirTable.put(id, PARALLEL);
+        Player p = event.getPlayer();
+        if (p.getWorld() == OVERWORLD) playerDirTable.put(p, PARALLEL);
     }
 
     @EventHandler
     public void onPayerQuit(PlayerQuitEvent event) {
-        UUID id = event.getPlayer().getUniqueId();
-        playerDirTable.remove(id);
+        Player p = event.getPlayer();
+        if (p.getWorld() == OVERWORLD) playerDirTable.remove(p);
     }
 
     @EventHandler
     public void onPlayerChangedWorld(PlayerChangedWorldEvent event) {
         Player p = event.getPlayer();
         if (p.getWorld() == OVERWORLD) {
-            playerDirTable.put(p.getUniqueId(), PARALLEL);
+            playerDirTable.put(p, PARALLEL);
         } else {
-            playerDirTable.remove(p.getUniqueId());
+            playerDirTable.remove(p);
         }
 
+    }
+
+    @Override
+    public String toString() {
+        return "Windy";
     }
 
     enum WindDirection {
@@ -253,13 +234,13 @@ public class Windy implements WeatherType, Listener {
 
         private final double deltaX;
         private final double deltaZ;
-        private final UUID id;
+        private final Player p;
         private final boolean firstNamedWind;
 
-        DirectionFinder(double deltaX, double deltaZ, UUID id, boolean firstNamedWind) {
+        DirectionFinder(double deltaX, double deltaZ, Player p, boolean firstNamedWind) {
             this.deltaX = deltaX;
             this.deltaZ = deltaZ;
-            this.id = id;
+            this.p = p;
             this.firstNamedWind = firstNamedWind;
         }
 
@@ -268,11 +249,11 @@ public class Windy implements WeatherType, Listener {
             int dir2 = dir1 == IN ? AGAINST : IN;
 
             if (d.deltaZ < -Math.abs(d.deltaX)) {
-                playerDirTable.put(d.id, dir1);
+                playerDirTable.put(d.p, dir1);
             } else if (d.deltaZ > Math.abs(d.deltaX)) {
-                playerDirTable.put(d.id, dir2);
+                playerDirTable.put(d.p, dir2);
             } else {
-                playerDirTable.put(d.id, PARALLEL);
+                playerDirTable.put(d.p, PARALLEL);
             }
         }
 
@@ -281,11 +262,11 @@ public class Windy implements WeatherType, Listener {
             int dir2 = dir1 == IN ? AGAINST : IN;
 
             if (d.deltaX > Math.abs(d.deltaZ)) {
-                playerDirTable.put(d.id, dir1);
+                playerDirTable.put(d.p, dir1);
             } else if (d.deltaX < -Math.abs(d.deltaZ)) {
-                playerDirTable.put(d.id, dir2);
+                playerDirTable.put(d.p, dir2);
             } else {
-                playerDirTable.put(d.id, PARALLEL);
+                playerDirTable.put(d.p, PARALLEL);
             }
         }
 
@@ -294,11 +275,11 @@ public class Windy implements WeatherType, Listener {
             int dir2 = dir1 == IN ? AGAINST : IN;
 
             if (d.deltaX > 0 && d.deltaZ < 0) {
-                playerDirTable.put(d.id, dir1);
+                playerDirTable.put(d.p, dir1);
             } else if (d.deltaX < 0 && d.deltaZ > 0) {
-                playerDirTable.put(d.id, dir2);
+                playerDirTable.put(d.p, dir2);
             } else {
-                playerDirTable.put(d.id, PARALLEL);
+                playerDirTable.put(d.p, PARALLEL);
             }
         }
 
@@ -307,17 +288,15 @@ public class Windy implements WeatherType, Listener {
             int dir2 = dir1 == IN ? AGAINST : IN;
 
             if (d.deltaX < 0 && d.deltaZ < 0) {
-                playerDirTable.put(d.id, dir1);
+                playerDirTable.put(d.p, dir1);
             } else if (d.deltaX > 0 && d.deltaZ > 0) {
-                playerDirTable.put(d.id, dir2);
+                playerDirTable.put(d.p, dir2);
             } else {
-                playerDirTable.put(d.id, PARALLEL);
+                playerDirTable.put(d.p, PARALLEL);
             }
         }
-
-
-
     }
+
 
 }
 
