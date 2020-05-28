@@ -22,7 +22,6 @@ public class Main extends JavaPlugin {
             getServer().getPluginManager().disablePlugin(this);
         }
 
-        getServer().dispatchCommand(getServer().getConsoleSender(), "weather clear"); //doesn't work
         WeatherHandler weatherHandler = new WeatherHandler();
         new Commands(weatherHandler);
         new WeatherCommandCatcher();

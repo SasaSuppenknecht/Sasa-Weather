@@ -14,16 +14,24 @@ public class Commands implements CommandExecutor, TabCompleter {
     private final WeatherHandler WEATHER_HANDLER;
 
     private LinkedList<String> weatherStrings = new LinkedList<>();
-    private LinkedList<WeatherType> weatherTypes = new LinkedList<>();
+    private Set<WeatherType> weatherTypesSet;
+    private Hashtable<WeatherType, Boolean> weatherEnabledMap;
 
+
+    // todo TEST THIS
 
     Commands(WeatherHandler weatherHandler) {
         MAIN = Main.getMainInstance();
         WEATHER_HANDLER = weatherHandler;
-        for (WeatherType w : weatherHandler.getEnabledWeatherTypes()) {
-            weatherTypes.add(w);
-            weatherStrings.add(w.toString());
+        weatherEnabledMap = weatherHandler.getWeatherEnabledMap();
+        weatherTypesSet = weatherEnabledMap.keySet();
+
+        for (WeatherType w : weatherTypesSet) {
+            if (weatherEnabledMap.get(w)) {
+                weatherStrings.add(w.toString());
+            }
         }
+        weatherStrings.add("Clear");
 
         try {
             MAIN.getServer().getPluginCommand("sweather").setExecutor(this);
@@ -42,13 +50,22 @@ public class Commands implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equals("sweather")) {
-            for (WeatherType w : weatherTypes) {
-                if (w.toString().equals(args[0])) {
+            if (args[0].equals("Clear")) {
+                WEATHER_HANDLER.changeWeatherOnCommand(null);
+                return true;
+            }
+            for (WeatherType w : weatherTypesSet) {
+                if (w.toString().equals(args[0]) && weatherEnabledMap.get(w)) {
                     WEATHER_HANDLER.changeWeatherOnCommand(w);
                     return true;
                 }
             }
             return false;
+        } else if (command.getName().equals("enabledweather")) {
+            for (WeatherType w : weatherTypesSet) {
+                String status = weatherEnabledMap.get(w) ? "enabled" : "disabled";
+                sender.sendMessage(w.toString() + ": " + status);
+            }
         }
         return true;
     }

@@ -20,15 +20,13 @@ public class WeatherHandler implements Listener {
     private int maxTime;
     private boolean random;
     private double weatherLikelihood;
-
-    private boolean windyEnabled; //todo use this for a list of active weathers
-    private boolean rainEnabled;
     //---
 
-    private Hashtable<WeatherType, Integer> weathertypes = new Hashtable<>();
+    private Hashtable<WeatherType, Boolean> weatherEnabledMap = new Hashtable<>();
+    private Hashtable<WeatherType, Integer> weatherWeightMap = new Hashtable<>();
     private LinkedList<WeatherType> weatherDistribution = new LinkedList<>();
-    private WeatherType currentWeather;
-    private boolean interruptNext;
+    private WeatherType currentWeather = null;
+    private boolean interruptNext = false;
 
 
     WeatherHandler() {
@@ -38,6 +36,7 @@ public class WeatherHandler implements Listener {
         fillWeatherDistributionTable();
 
         MAIN.getServer().getWorlds().get(0).setGameRule(GameRule.DO_WEATHER_CYCLE, false);
+
         MAIN.getServer().getPluginManager().registerEvents(this, MAIN);
         MAIN.getServer().getPluginManager().callEvent(new WeatherEndEvent(null));
     }
@@ -58,25 +57,28 @@ public class WeatherHandler implements Listener {
 
 
         //enabling or disabling weathers
-        windyEnabled = config.getBoolean("Windy.EnableWeather", true);
+        boolean windyEnabled = config.getBoolean("Windy.EnableWeather", true);
         setWeightInHashmap(windyEnabled, new Windy(), 1);
-        rainEnabled = config.getBoolean("Rain.EnableWeather", true);
+        boolean rainEnabled = config.getBoolean("Rain.EnableWeather", true);
         setWeightInHashmap(rainEnabled, new Rain(), 2);
     }
 
     private void setWeightInHashmap(boolean enabled, WeatherType weatherType, int def) {
         if (enabled) {
+            weatherEnabledMap.put(weatherType, true);
             int weight = config.getInt( weatherType.toString() + ".Weight", def);
             if (weight < 1 || weight > 10) weight = def;
-            weathertypes.put(weatherType, weight);
+            weatherWeightMap.put(weatherType, weight);
+        } else {
+            weatherEnabledMap.put(weatherType, false);
         }
     }
 
     private void fillWeatherDistributionTable() {
-        Set<WeatherType> weathers = weathertypes.keySet();
+        Set<WeatherType> weathers = weatherWeightMap.keySet();
 
         for (WeatherType w : weathers) {
-            int weight = weathertypes.get(w);
+            int weight = weatherWeightMap.get(w);
             for (int i = 0; i < weight; i++) {
                 weatherDistribution.add(w);
             }
@@ -90,6 +92,8 @@ public class WeatherHandler implements Listener {
             interruptNext = false;
             return;
         }
+
+        MAIN.getServer().broadcastMessage("I am not working");
 
         long interval;
         Random r = new Random();
@@ -117,14 +121,16 @@ public class WeatherHandler implements Listener {
         currentWeather.start();
     }
 
-    public Set<WeatherType> getEnabledWeatherTypes() {
-        return weathertypes.keySet(); //todo maybe this creates an error in executing the command
+    public Hashtable<WeatherType, Boolean> getWeatherEnabledMap() {
+        return weatherEnabledMap;
     }
 
     public synchronized void changeWeatherOnCommand(WeatherType weatherType) {
-        interruptNext = true;
-        currentWeather.stop();
+        if (currentWeather != null) {
+            interruptNext = true;
+            currentWeather.stop();
+        }
         currentWeather = weatherType;
-        currentWeather.start();
+        if (currentWeather != null) currentWeather.start();
     }
 }

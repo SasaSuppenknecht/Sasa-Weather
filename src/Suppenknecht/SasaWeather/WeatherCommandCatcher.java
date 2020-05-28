@@ -3,6 +3,7 @@ package Suppenknecht.SasaWeather;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+import org.bukkit.event.server.ServerLoadEvent;
 
 public class WeatherCommandCatcher implements Listener {
 
@@ -19,5 +20,10 @@ public class WeatherCommandCatcher implements Listener {
             event.setCancelled(true);
             event.getPlayer().sendMessage("Please use this plugin's commands.");
         }
+    }
+
+    @EventHandler
+    public void onServerLoaded(ServerLoadEvent event) {
+        MAIN.getServer().dispatchCommand(MAIN.getServer().getConsoleSender(), "weather clear");
     }
 }

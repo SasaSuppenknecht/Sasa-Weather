@@ -7,26 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10bdc72c-4c61-4f35-b262-82bd314cc009" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Commands.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/Types/Rain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/WeatherCommandCatcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/Weather/Types/Windy$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/Weather/Types/Windy$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/Weather/Types/Windy$DirectionFinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/Weather/Types/Windy$DirectionFinder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/Weather/Types/Windy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/Weather/Types/Windy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/Weather/WeatherType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/Weather/WeatherType.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/WeatherHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/WeatherHandler$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/WeatherHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/WeatherHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sasa Weather/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sasa Weather/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Commands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/Types/Windy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/Types/Windy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/WeatherType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/WeatherType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/WeatherCommandCatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/WeatherCommandCatcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/WeatherHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/WeatherHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugin.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
