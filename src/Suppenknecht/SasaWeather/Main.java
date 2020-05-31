@@ -19,7 +19,7 @@ public class Main extends JavaPlugin
         }
         final WeatherHandler weatherHandler = new WeatherHandler();
         new Commands(weatherHandler);
-        new WeatherCommandCatcher();
+        new WeatherPropertiesDisabler();
     }
     
     public static Main getMainInstance() {

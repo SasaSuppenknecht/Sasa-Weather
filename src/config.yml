@@ -21,8 +21,118 @@ General:
   # Default: 1.0 (min: 0.0; max: 1.0)
   WeatherLikelihood: 1.0
 
+  # Enable messages which announce the beginning or the end of a weathertype
+  # Default: false
+  WeatherMessages: false
 
+
+# This weather represent normal rain with hail. Hail means that snowballs are gonna rain from the sky in order
+# to strike the player
+Hail:
+  # We(a)ther or not this weather will occur
+  # Default: true
+  EnableWeather: true
+
+  # Will pick a random duration for this weather between MinDuration and MaxDuration
+  Duration:
+    # The minimal duration of hail weather (in seconds)
+    # Default: 60 (min: 30; max: 1200)
+    MinDuration: 60
+    # The maximum duration of hail weather (in seconds)
+    # Default: 120 (min: 30; max: 1200)
+    MaxDuration: 120
+
+  # This determines how likely an occurrence of this weather-type is compared to another
+  # Default: 2 (min: 1; max: 10; whole numbers)
+  Weight: 2
+
+# The heat weather represents hot temperatures that can cause plants and crops to die (rather: break), random fires to
+# occur and can affect the player in negatives ways if he is walking around outside during daytime
+Heat:
+  # We(a)ther or not this weather will occur
+  # Default: true
+  EnableWeather: true
+
+  # Will pick a random duration for this weather between MinDuration and MaxDuration
+  Duration:
+    # The minimal duration of windy weather (in seconds)
+    # Default: 120 (min: 30; max: 1200)
+    MinDuration: 120
+    # The maximum duration of windy weather (in seconds)
+    # Default: 240 (min: 30; max: 1200)
+    MaxDuration: 240
+
+  # If this weather should affect the player (e.g. slow him, increased hunger, disabling sprint) while the player
+  # is outside; this also depends on the specific biome/block temperature
+  # Default: true
+  AffectPlayers: true
+  # Random fires the heat can cause
+  RandomFire:
+    # Enable the random fires
+    # Default: true
+    EnableRandomFire: false
+    # The chance for a random fire per interval (30 ticks)
+    # Default: 0.05 (min: 0.0; max: 1.0)
+    RandomFireChance: 0.05
+    # If this is enabled the fire chance is doubled for warm biomes and halved for cold biomes (in the end it depends
+    # on the block temperature tho); read: https://minecraft.gamepedia.com/Biome
+    # Default: true
+    ConsiderBiomeTemperature: true
+  # The heat can cause crops and plants to die
+  DyingPlants:
+    # Enable the random death of plants; only plants that do not have a block above them in any height are affected
+    # Default: true
+    EnableDyingPlants: true
+    # The chance for a random plant or crop death per interval (30 ticks)
+    # Default: 0.5 (min: 0.0; max: 1.0)
+    DyingPlantsChance: 0.5
+  # If AffectPlayers, EnableRandomFire and EnableDyingPlants are all set to false, the heat weather will be
+  # considered disabled
+
+  # This determines how likely an occurrence of this weather-type is compared to another
+  # Default: 1 (min: 1; max: 10; whole numbers)
+  Weight: 1
+
+# Represents the normal rainy weather in Minecraft
 Rain:
+  # We(a)ther or not this weather will occur
+  # Default: true
+  EnableWeather: true
+
+  # Will pick a random duration for this weather between MinDuration and MaxDuration
+  Duration:
+    # The minimal duration of rain weather (in seconds)
+    # Default: 90 (min: 30; max: 1200)
+    MinDuration: 90
+    # The maximum duration of rain weather (in seconds)
+    # Default: 240 (min: 30; max: 1200)
+    MaxDuration: 240
+
+  # This determines how likely an occurrence of this weather-type is compared to another
+  # Default: 3 (min: 1; max: 10; whole numbers)
+  Weight: 3
+
+# Represents a special snow weather quite similar to the normal snow, but in more areas
+Snow:
+  # We(a)ther or not this weather will occur
+  # Default: true
+  EnableWeather: true
+
+  # Will pick a random duration for this weather between MinDuration and MaxDuration
+  Duration:
+    # The minimal duration of snow weather (in seconds)
+    # Default: 150 (min: 30; max: 1200)
+    MinDuration: 150
+    # The maximum duration of snow weather (in seconds)
+    # Default: 300 (min: 30; max: 1200)
+    MaxDuration: 300
+
+  # This determines how likely an occurrence of this weather-type is compared to another
+  # Default: 2 (min: 1; max: 10; whole numbers)
+  Weight: 2
+
+# Represents the normal thunder weather in Minecraft
+Thunder:
   # We(a)ther or not this weather will occur
   # Default: true
   EnableWeather: true
@@ -33,10 +143,8 @@ Rain:
     # Default: 90 (min: 30; max: 1200)
     MinDuration: 90
     # The maximum duration of windy weather (in seconds)
-    # Default: 240 (min: 30; max: 1200)
-    MaxDuration: 240
-
-
+    # Default: 210 (min: 30; max: 1200)
+    MaxDuration: 210
 
   # This determines how likely an occurrence of this weather-type is compared to another
   # Default: 2 (min: 1; max: 10; whole numbers)
@@ -59,18 +167,18 @@ Windy:
     # Default: 210 (min: 30; max: 1200)
     MaxDuration: 210
 
-  # If AffectPlayers and EnableParticles are both false, EnableWeather will be considered false, too
   # Should the wind affect players? (e.g. slow them down or speed them up)
   # Default: true
   AffectPlayers: true
   # If this weather should generate particles
   # Default: true
   EnableParticles: true
+  # If AffectPlayers and EnableParticles are both false, EnableWeather will be considered false, too
 
   # This determines how likely an occurrence of this weather-type is compared to another
   # So, a weather with a weight of 2 is twice as likely to occur as a weather with a weight of 1
-  # Default: 1 (min: 1; max: 10; whole numbers)
-  Weight: 1
+  # Default: 2 (min: 1; max: 10; whole numbers)
+  Weight: 2
 
 
 
