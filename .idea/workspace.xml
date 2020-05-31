@@ -7,16 +7,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10bdc72c-4c61-4f35-b262-82bd314cc009" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/Types/Hail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/Types/Heat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/Types/Snow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/Types/Thunder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Spigot.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Spigot.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/WeatherHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/WeatherHandler$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/WeatherHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sasa Weather/Suppenknecht/SasaWeather/WeatherHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Commands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/Types/Rain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/Types/Rain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/Types/Windy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/Types/Windy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/WeatherEndEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/WeatherEndEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/WeatherType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/WeatherType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/WeatherCommandCatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/WeatherCommandCatcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/WeatherHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/WeatherHandler.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,26 +48,17 @@
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1bxIr0hY02jjMIGkhZVkzYbWQEM" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Spigot" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -91,9 +87,28 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="MAXIMUM_HISTORY_ROWS" value="3000" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/Sasa Weather" />
     </ignored-roots>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="533" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590941377443">
+      <screen x="0" y="0" width="1680" height="1002" />
+    </state>
+    <state x="533" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1680.1002@0.0.1680.1002" timestamp="1590941377443" />
+    <state x="533" y="148" key="DetectedRootsChooserDialog" timestamp="1590940179978">
+      <screen x="0" y="0" width="1680" height="1002" />
+    </state>
+    <state x="533" y="148" key="DetectedRootsChooserDialog/0.0.1680.1002@0.0.1680.1002" timestamp="1590940179978" />
+    <state x="471" y="177" key="FileChooserDialogImpl" timestamp="1590940177546">
+      <screen x="0" y="0" width="1680" height="1002" />
+    </state>
+    <state x="471" y="177" key="FileChooserDialogImpl/0.0.1680.1002@0.0.1680.1002" timestamp="1590940177546" />
+    <state x="191" y="0" key="SettingsEditor" timestamp="1590940185935">
+      <screen x="0" y="0" width="1680" height="1002" />
+    </state>
+    <state x="191" y="0" key="SettingsEditor/0.0.1680.1002@0.0.1680.1002" timestamp="1590940185935" />
   </component>
 </project>

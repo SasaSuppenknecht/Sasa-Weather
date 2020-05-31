@@ -1,30 +1,26 @@
 package Suppenknecht.SasaWeather.Weather;
 
-import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
+import org.bukkit.event.Event;
 
-public class WeatherEndEvent extends Event {
-
-
-    private final WeatherType weather;
-
-    public WeatherEndEvent(WeatherType weather) {
-        this.weather = weather;
-    }
-
-    public WeatherType getWeather() {
-        return weather;
-    }
-
-
+public class WeatherEndEvent extends Event
+{
+    private final WeatherType WEATHER;
     private static final HandlerList HANDLERS = new HandlerList();
-
-    @Override
-    public HandlerList getHandlers() {
-        return HANDLERS;
+    
+    public WeatherEndEvent(final WeatherType weather) {
+        WEATHER = weather;
     }
-
+    
+    public WeatherType getWeather() {
+        return WEATHER;
+    }
+    
+    public HandlerList getHandlers() {
+        return WeatherEndEvent.HANDLERS;
+    }
+    
     public static HandlerList getHandlerList() {
-        return HANDLERS;
+        return WeatherEndEvent.HANDLERS;
     }
 }

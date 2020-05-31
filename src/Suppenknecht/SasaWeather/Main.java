@@ -2,33 +2,27 @@ package Suppenknecht.SasaWeather;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-
-public class Main extends JavaPlugin {
-
-    private static Main instance = null;
-
-    @Override
+public class Main extends JavaPlugin
+{
+    private static Main instance;
+    
     public void onDisable() {
         super.onDisable();
     }
-
-    @Override
+    
     public void onEnable() {
         instance = this;
-        this.saveDefaultConfig();
-
-        boolean enabled = getConfig().getBoolean("General.Enable", true);
+        saveDefaultConfig();
+        final boolean enabled = this.getConfig().getBoolean("General.Enable", true);
         if (!enabled) {
-            getServer().getPluginManager().disablePlugin(this);
+            this.getServer().getPluginManager().disablePlugin(this);
         }
-
-        WeatherHandler weatherHandler = new WeatherHandler();
+        final WeatherHandler weatherHandler = new WeatherHandler();
         new Commands(weatherHandler);
         new WeatherCommandCatcher();
     }
-
+    
     public static Main getMainInstance() {
-        return instance;
+        return Main.instance;
     }
-
 }

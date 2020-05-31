@@ -5,13 +5,13 @@ import org.bukkit.plugin.Plugin;
 
 import java.util.Random;
 
-public class Rain extends WeatherType
+public class Thunder extends WeatherType
 {
     private int duration;
     
     @Override
     public void start() {
-        OVERWORLD.setStorm(true);
+        OVERWORLD.setThundering(true);
         duration = (new Random().nextInt(maxDuration - minDuration + 1) + minDuration) * 20;
         OVERWORLD.setWeatherDuration(duration);
         super.start();
@@ -19,15 +19,14 @@ public class Rain extends WeatherType
     
     @Override
     public void stop() {
-        OVERWORLD.setStorm(false);
+        OVERWORLD.setThundering(false);
         super.stop();
     }
     
     @Override
     protected void getConfig() {
-        final int defaultMin = 90;
-        final int defaultMax = 240;
-        super.getDurationBounds(90, 240);
+        final int defaultMin = 90, defaultMax = 210;
+        super.getDurationBounds(defaultMin, defaultMax);
     }
     
     @Override
@@ -37,6 +36,6 @@ public class Rain extends WeatherType
     
     @Override
     public String toString() {
-        return "Rain";
+        return "Thunder";
     }
 }
