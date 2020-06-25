@@ -3,10 +3,8 @@ package Suppenknecht.SasaWeather.Weather;
 import Suppenknecht.SasaWeather.Main;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitScheduler;
 
 public abstract class WeatherType implements Listener {

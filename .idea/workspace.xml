@@ -8,11 +8,8 @@
   <component name="ChangeListManager">
     <list default="true" id="10bdc72c-4c61-4f35-b262-82bd314cc009" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configXWeather.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/language.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/WeatherCommandCatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/WeatherPropertiesDisabler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/Types/Hail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/Types/Hail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/WeatherType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Suppenknecht/SasaWeather/Weather/WeatherType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +40,14 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Spigot" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -102,5 +105,9 @@
       <screen x="0" y="0" width="1680" height="1002" />
     </state>
     <state x="191" y="0" key="SettingsEditor/0.0.1680.1002@0.0.1680.1002" timestamp="1590940185935" />
+    <state x="459" y="280" key="com.intellij.ide.util.TipDialog" timestamp="1590995692076">
+      <screen x="0" y="0" width="1680" height="1002" />
+    </state>
+    <state x="459" y="280" key="com.intellij.ide.util.TipDialog/0.0.1680.1002@0.0.1680.1002" timestamp="1590995692076" />
   </component>
 </project>

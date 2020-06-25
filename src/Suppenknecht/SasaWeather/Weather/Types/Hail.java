@@ -10,6 +10,7 @@ import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -20,7 +21,7 @@ public class Hail extends WeatherType implements Listener
     
     @Override
     public void start() {
-        playersInOverworld = (LinkedList<Player>)OVERWORLD.getPlayers();
+        playersInOverworld = (LinkedList<Player>) OVERWORLD.getPlayers();
         OVERWORLD.setStorm(true);
         duration = (new Random().nextInt(maxDuration - minDuration + 1) + minDuration) * 20;
         OVERWORLD.setWeatherDuration(duration);
